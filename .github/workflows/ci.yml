@@ -7,12 +7,10 @@ on:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
-  group: pages-${{ github.ref }}
-  cancel-in-progress: false
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   quality:
@@ -42,13 +40,15 @@ jobs:
       - name: Pytest
         run: pytest -q
 
-  build-and-deploy:
-    needs: quality
+  build:
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    needs: quality
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deploy.outputs.page_url }}
+    permissions:
+      contents: read
+      actions: write
+      pages: write
+      id-token: write
     steps:
       - uses: actions/checkout@v4
 
@@ -76,6 +76,18 @@ jobs:
         with:
           path: dist
 
+  deploy:
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
       - name: Deploy to GitHub Pages
         id: deploy
         uses: actions/deploy-pages@v4
