@@ -12,6 +12,16 @@ DEBUG = os.environ.get("DJANGO_DEBUG", "1") == "1"
 
 ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS", "localhost,127.0.0.1").split(",")
 
+
+def _site_base_path() -> str:
+    raw = os.environ.get("SITE_BASE_PATH", "").strip()
+    if not raw:
+        return ""
+    return "/" + raw.strip("/") + "/"
+
+
+SITE_BASE_PATH = _site_base_path()
+
 STATIC_URL = "/static/"
 
 INSTALLED_APPS = [
@@ -37,6 +47,7 @@ TEMPLATES = [
             "context_processors": [
                 "django.template.context_processors.request",
                 "django.template.context_processors.static",
+                "config.context_processors.site_base",
             ],
         },
     },

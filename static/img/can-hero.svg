@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="720" viewBox="0 0 320 720" fill="none">
+  <defs>
+    <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fff3e0"/>
+      <stop offset="45%" stop-color="#ffb347"/>
+      <stop offset="100%" stop-color="#ff6b4a"/>
+    </linearGradient>
+    <linearGradient id="g2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect x="48" y="40" width="224" height="640" rx="72" fill="url(#g1)" stroke="#2b1f1a" stroke-width="4"/>
+  <rect x="72" y="88" width="176" height="200" rx="24" fill="url(#g2)"/>
+  <text x="160" y="280" text-anchor="middle" fill="#2b1f1a" font-family="Anton, Impact, sans-serif" font-size="42" letter-spacing="0.08em">RETRO</text>
+  <text x="160" y="340" text-anchor="middle" fill="#2b1f1a" font-family="Anton, Impact, sans-serif" font-size="42" letter-spacing="0.08em">FIZZ</text>
+  <text x="160" y="400" text-anchor="middle" fill="#5c3d2e" font-family="Arial, sans-serif" font-size="18" font-weight="600">RUBY CITRUS</text>
+  <rect x="48" y="480" width="224" height="200" fill="#2b1f1a"/>
+  <path d="M48 480h224v40H48z" fill="#f6efe6"/>
+  <path d="M48 520h224v40H48z" fill="#2b1f1a"/>
+  <path d="M48 560h224v40H48z" fill="#f6efe6"/>
+  <path d="M48 600h224v40H48z" fill="#2b1f1a"/>
+  <path d="M48 640h224v40H48z" fill="#f6efe6"/>
+  <ellipse cx="160" cy="56" rx="40" ry="8" fill="#c4c4c4"/>
+</svg>

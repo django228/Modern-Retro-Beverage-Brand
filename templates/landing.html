@@ -33,14 +33,15 @@
       </dl>
     </div>
     <div class="hero__visual" aria-hidden="true">
-      <div class="can">
-        <div class="can__shine"></div>
-        <div class="can__label">
-          <span class="can__brand">{{ page.brand_name }}</span>
-          <span class="can__flavor">Ruby Citrus</span>
-        </div>
-        <div class="can__stripes"></div>
-      </div>
+      <img
+        class="hero__can-img"
+        src="{{ SITE_BASE_PATH }}static/img/can-hero.svg"
+        alt=""
+        width="280"
+        height="630"
+        loading="eager"
+        decoding="async"
+      >
       <div class="blob blob--one"></div>
       <div class="blob blob--two"></div>
     </div>
@@ -66,6 +67,15 @@
   <div class="flavors">
     {% for f in page.flavors %}
     <article class="flavor-card" style="--accent: {{ f.accent }}">
+      <img
+        class="flavor-card__illus"
+        src="{{ SITE_BASE_PATH }}static/img/flavor-{{ forloop.counter }}.svg"
+        alt=""
+        width="120"
+        height="144"
+        loading="lazy"
+        decoding="async"
+      >
       <div class="flavor-card__swatch"></div>
       <h3 class="flavor-card__name">{{ f.name }}</h3>
       <p class="flavor-card__text">{{ f.description }}</p>
@@ -87,6 +97,15 @@
         <h3 class="product__title">{{ p.title }}</h3>
         <p class="product__mood">{{ p.mood }}</p>
       </div>
+      <img
+        class="product__illus"
+        src="{{ SITE_BASE_PATH }}static/img/lineup-{{ forloop.counter }}.svg"
+        alt=""
+        width="160"
+        height="180"
+        loading="lazy"
+        decoding="async"
+      >
       <div class="product__gloss"></div>
     </article>
     {% endfor %}
@@ -102,19 +121,15 @@
       {% endfor %}
     </div>
     <div class="story__art" aria-hidden="true">
-      <svg class="story__svg" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stop-color="#ff8a5c"/>
-            <stop offset="100%" stop-color="#ffd166"/>
-          </linearGradient>
-        </defs>
-        <rect x="24" y="40" width="352" height="320" rx="28" fill="#2b1f1a" opacity="0.35"/>
-        <circle cx="200" cy="200" r="120" fill="url(#g1)" opacity="0.9"/>
-        <path d="M120 260 Q200 180 280 260" stroke="#fff" stroke-width="6" fill="none" opacity="0.5"/>
-        <text x="200" y="210" text-anchor="middle" fill="#2b1f1a" font-family="Anton, sans-serif" font-size="42">RETRO</text>
-        <text x="200" y="255" text-anchor="middle" fill="#2b1f1a" font-family="Anton, sans-serif" font-size="42">FIZZ</text>
-      </svg>
+      <img
+        class="story__svg"
+        src="{{ SITE_BASE_PATH }}static/img/story-poster.svg"
+        alt=""
+        width="400"
+        height="400"
+        loading="lazy"
+        decoding="async"
+      >
     </div>
   </div>
 </section>

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="280" height="320" viewBox="0 0 280 320" fill="none">
+  <ellipse cx="140" cy="280" rx="90" ry="20" fill="#000" opacity="0.2"/>
+  <rect x="70" y="40" width="140" height="220" rx="28" fill="#1a1a2e" stroke="#6b4e71" stroke-width="2"/>
+  <rect x="90" y="60" width="100" height="40" rx="8" fill="#fff" opacity="0.08"/>
+  <text x="140" y="140" text-anchor="middle" fill="#f8fafc" font-family="Impact, sans-serif" font-size="22">MIDNIGHT</text>
+</svg>

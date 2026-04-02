@@ -65,6 +65,7 @@ jobs:
       - name: Build static site
         env:
           DJANGO_DEBUG: "0"
+          SITE_BASE_PATH: ${{ github.event.repository.name }}
         run: |
           python manage.py distill-local dist --collectstatic --force
 
