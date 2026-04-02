@@ -1,0 +1,142 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<header class="top">
+  <a class="logo" href="#top" id="top">
+    <span class="logo__mark">{{ page.brand_name }}</span>
+    <span class="logo__sub">{{ page.tagline }}</span>
+  </a>
+  <nav class="nav" aria-label="Основная навигация">
+    {% for link in page.nav_links %}
+    <a class="nav__link" href="{{ link.href }}">{{ link.label }}</a>
+    {% endfor %}
+  </nav>
+  <a class="btn btn--ghost" href="#newsletter">В лист ожидания</a>
+</header>
+
+<section class="hero">
+  <div class="hero__grid">
+    <div class="hero__copy">
+      <p class="eyebrow">Новая партия • 2026</p>
+      <h1 class="hero__title">{{ page.hero_title }}</h1>
+      <p class="hero__lead">{{ page.hero_lead }}</p>
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="#lineup">{{ page.hero_cta_primary }}</a>
+        <a class="btn btn--secondary" href="#flavors">{{ page.hero_cta_secondary }}</a>
+      </div>
+      <dl class="hero__stats">
+        {% for s in page.stats %}
+        <div class="stat">
+          <dt class="stat__value">{{ s.value }}</dt>
+          <dd class="stat__label">{{ s.label }}</dd>
+        </div>
+        {% endfor %}
+      </dl>
+    </div>
+    <div class="hero__visual" aria-hidden="true">
+      <div class="can">
+        <div class="can__shine"></div>
+        <div class="can__label">
+          <span class="can__brand">{{ page.brand_name }}</span>
+          <span class="can__flavor">Ruby Citrus</span>
+        </div>
+        <div class="can__stripes"></div>
+      </div>
+      <div class="blob blob--one"></div>
+      <div class="blob blob--two"></div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee" role="presentation">
+  <div class="marquee__inner">
+    {% for phrase in page.marquee_phrases %}
+    <span class="marquee__item">{{ phrase }}</span>
+    {% endfor %}
+    {% for phrase in page.marquee_phrases %}
+    <span class="marquee__item">{{ phrase }}</span>
+    {% endfor %}
+  </div>
+</div>
+
+<section class="section" id="flavors">
+  <div class="section__head">
+    <h2 class="section__title">Три столпа вкуса</h2>
+    <p class="section__lead">Каждый — со своим характером и палитрой.</p>
+  </div>
+  <div class="flavors">
+    {% for f in page.flavors %}
+    <article class="flavor-card" style="--accent: {{ f.accent }}">
+      <div class="flavor-card__swatch"></div>
+      <h3 class="flavor-card__name">{{ f.name }}</h3>
+      <p class="flavor-card__text">{{ f.description }}</p>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="section section--dark" id="lineup">
+  <div class="section__head section__head--light">
+    <h2 class="section__title">Линейка на витрине</h2>
+    <p class="section__lead">Карточки как плакаты: крупно, честно, без лишнего шума.</p>
+  </div>
+  <div class="lineup">
+    {% for p in page.products %}
+    <article class="product" style="background: {{ p.gradient }}">
+      <div class="product__meta">
+        <span class="product__badge">{{ p.subtitle }}</span>
+        <h3 class="product__title">{{ p.title }}</h3>
+        <p class="product__mood">{{ p.mood }}</p>
+      </div>
+      <div class="product__gloss"></div>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="section story" id="story">
+  <div class="story__layout">
+    <div class="story__panel">
+      <h2 class="section__title">{{ page.story_title }}</h2>
+      {% for paragraph in page.story_body %}
+      <p class="story__text">{{ paragraph }}</p>
+      {% endfor %}
+    </div>
+    <div class="story__art" aria-hidden="true">
+      <svg class="story__svg" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#ff8a5c"/>
+            <stop offset="100%" stop-color="#ffd166"/>
+          </linearGradient>
+        </defs>
+        <rect x="24" y="40" width="352" height="320" rx="28" fill="#2b1f1a" opacity="0.35"/>
+        <circle cx="200" cy="200" r="120" fill="url(#g1)" opacity="0.9"/>
+        <path d="M120 260 Q200 180 280 260" stroke="#fff" stroke-width="6" fill="none" opacity="0.5"/>
+        <text x="200" y="210" text-anchor="middle" fill="#2b1f1a" font-family="Anton, sans-serif" font-size="42">RETRO</text>
+        <text x="200" y="255" text-anchor="middle" fill="#2b1f1a" font-family="Anton, sans-serif" font-size="42">FIZZ</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section class="newsletter" id="newsletter">
+  <div class="newsletter__card">
+    <h2 class="newsletter__title">{{ page.newsletter_heading }}</h2>
+    <p class="newsletter__hint">{{ page.newsletter_hint }}</p>
+    <form class="newsletter__form" action="#" method="get" onsubmit="return false;">
+      <label class="sr-only" for="email">Электронная почта</label>
+      <input class="newsletter__input" id="email" type="email" name="email" placeholder="you@example.com" autocomplete="email">
+      <button class="btn btn--primary" type="submit">Подписаться</button>
+    </form>
+  </div>
+</section>
+
+<footer class="footer" id="footer">
+  <p class="footer__note">{{ page.footer_note }}</p>
+  <p class="footer__figma">
+    Макет-референс:
+    <a href="https://www.figma.com/site/OwtHf9gFzeH11YEM0tDuvz/Modern-Retro-Beverage-Brand--Community-?node-id=3-561" rel="noopener noreferrer">Figma Community</a>
+  </p>
+</footer>
+{% endblock %}
