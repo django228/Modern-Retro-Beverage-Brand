@@ -12,12 +12,7 @@ DEBUG = os.environ.get("DJANGO_DEBUG", "1") == "1"
 
 ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS", "localhost,127.0.0.1").split(",")
 
-_script = os.environ.get("DJANGO_BASE_PATH", "").strip().rstrip("/")
-if _script:
-    FORCE_SCRIPT_NAME = _script
-    STATIC_URL = f"{_script}/static/"
-else:
-    STATIC_URL = "/static/"
+STATIC_URL = "/static/"
 
 INSTALLED_APPS = [
     "django.contrib.staticfiles",

@@ -8,7 +8,7 @@
 
 Код разнесён по слоям в духе DDD: доменные модели в `brand/domain`, сценарий главной в `brand/application`, отдача контента из `brand/infrastructure`, вьюха в `brand/presentation`. Шаблоны в `templates/`, стили в `static/`.
 
-Сайт можно гонять как обычное Django-приложение, а для GitHub Pages собирается статика через [django-distill](https://github.com/meeb/django-distill): страницы выгружаются в `dist/`, в CI путь к статике подстраивается под имя репозитория (`DJANGO_BASE_PATH`).
+Сайт можно гонять как обычное Django-приложение, а для GitHub Pages собирается статика через [django-distill](https://github.com/meeb/django-distill): страницы выгружаются в `dist/`. Ссылки на CSS/JS относительные (`static/...`), чтобы на Pages с подпутём репозитория всё открывалось без отдельного префикса в настройках.
 
 ## Запуск у себя
 
